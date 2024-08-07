@@ -3,3 +3,7 @@ venv/
 
 # Ignore backend environment local file for environment configuration
 .env.local
+
+# Ignore Google API credentials and token in root directory
+credentials.json
+token.json
