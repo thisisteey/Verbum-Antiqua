@@ -10,7 +10,7 @@ from . import Base, BaseModel, create_tsvector
 
 class Post(BaseModel, Base):
     """Post model class for the database"""
-    __tablename__ = 'post'
+    __tablename__ = 'posts'
     user_id = Column(String(64), ForeignKey('users.id'), nullable=False)
     title = Column(String(256), nullable=False, default='', index=True)
     content = Column(TEXT, nullable=False, index=True)
