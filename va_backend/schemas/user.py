@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Module for User model schema for databse representation"""
 from sqlalchemy import Column, String, TEXT, Integer, Boolean, Index
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func, cast
