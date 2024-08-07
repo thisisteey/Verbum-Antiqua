@@ -7,3 +7,6 @@ venv/
 # Ignore Google API credentials and token in root directory
 credentials.json
 token.json
+
+# Ignore vscode dir and settings
+.vscode/
