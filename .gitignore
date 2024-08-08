@@ -10,3 +10,6 @@ token.json
 
 # Ignore vscode dir and settings
 .vscode/
+
+# Ignore all .DS_Store files
+.DS_Store 
