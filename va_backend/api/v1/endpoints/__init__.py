@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for handling API routes"""
+"""Module for handling API endpoints"""
 import os
 from fastapi import APIRouter
 from starlette.responses import FileResponse
