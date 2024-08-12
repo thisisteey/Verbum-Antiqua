@@ -62,6 +62,15 @@ class PostAddSchema(BaseModel):
     quotes: List[str]
 
 
+class PostUpdateSchema(BaseModel):
+    """Schema for updating a post"""
+    authToken: str
+    userId: str
+    postId: str
+    title: str
+    quotes: List[str]
+
+
 class PostDeleteSchema(BaseModel):
     """Schema for deleting a post"""
     authToken: str
@@ -82,6 +91,7 @@ class CommentAddSchema(BaseModel):
     userId: str
     postId: str
     content: str
+    replyTo: Optional[str]
 
 
 class CommentDeleteSchema(BaseModel):
