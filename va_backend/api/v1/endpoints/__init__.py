@@ -6,12 +6,12 @@ from starlette.responses import FileResponse
 from imagekitio import ImageKit
 
 
-home_router = APIRouter()
+home_endpoint = APIRouter()
 
 
-@home_router.get('/')
-@home_router.get('/api')
-@home_router.get('/api/v1')
+@home_endpoint.get('/')
+@home_endpoint.get('/api')
+@home_endpoint.get('/api/v1')
 async def get_welcome():
     """Gets and returns the welcome page and message"""
     api_response = {
@@ -23,8 +23,8 @@ async def get_welcome():
     return api_response
 
 
-@home_router.get('/favicon')
-@home_router.get('/favicon.ico')
+@home_endpoint.get('/favicon')
+@home_endpoint.get('/favicon.ico')
 async def serve_favicon():
     """Gets and returns the favicon image"""
     favicon_path = 'api/v1/assets/va_logo.png'
@@ -35,7 +35,7 @@ async def serve_favicon():
     return favicon_content
 
 
-@home_router.get('/api/v1/profile-picture')
+@home_endpoint.get('/api/v1/profile-picture')
 async def get_profile_picture(img_id: str):
     """Gets and returns the profile picture for a user"""
     imagekit = ImageKit(
