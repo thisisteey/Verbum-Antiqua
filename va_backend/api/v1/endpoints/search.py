@@ -111,7 +111,7 @@ async def search_posts(q='', token='', span='', after='', before=''):
         query = query.replace('\'', '').strip()
         if not query:
             return api_response
-        query = re.sub('\s+', '&', query)
+        query = re.sub(r'\s+', '&', query)
         content_search_res = db_session.query(Post).filter(
             Post.__ts_content__.match(query, postgresql_regconfig='english')
         ).all()
@@ -183,7 +183,7 @@ async def search_users(q='', token='', span='', after='', before=''):
         query = query.replace('\'', '').strip()
         if not query:
             return api_response
-        query = re.sub('\s+', '&', query)
+        query = re.sub(r'\s+', '&', query)
         name_search_res = db_session.query(User).filter(
             User.__ts_name__.match(query, postgresql_regconfig='english')
         ).all()
