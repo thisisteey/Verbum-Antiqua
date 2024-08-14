@@ -12,4 +12,7 @@ token.json
 .vscode/
 
 # Ignore all .DS_Store files
-.DS_Store 
+.DS_Store
+
+#Ignore Byte-compiled / optimized / DLI file(s)
+__pycache__/
