@@ -22,6 +22,8 @@ async def get_user_followers(id='', token='', span='12', after='', before=''):
         'success': False,
         'message': 'Unable to retrieve followers.'
     }
+    if not id:
+        return api_response
     auth_token = AuthTokenMngr.convert_token(token)
     curruser_id = auth_token.user_id if auth_token else None
     db_session = get_session()
@@ -80,6 +82,8 @@ async def get_user_followings(id='', token='', span='12', after='', before=''):
         'success': False,
         'message': 'Unable to find users followings.'
     }
+    if not id:
+        return api_response
     auth_token = AuthTokenMngr.convert_token(token)
     currusr_id = auth_token.user_id if auth_token else None
     db_session = get_session()
