@@ -45,7 +45,7 @@ async def get_profile_picture(img_id: str):
     )
     api_response = {
         'success': False,
-        'message': 'Failed to find URL.'
+        'message': 'Image ID is required.'
     }
     if not img_id:
         return api_response
