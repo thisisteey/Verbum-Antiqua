@@ -22,3 +22,9 @@ key.py
 
 #Ignore database population file
 populate_data.py
+
+#Ignore database exportation file
+export_data.py
+
+#Ignore csv folder
+export_data/
