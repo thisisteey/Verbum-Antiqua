@@ -63,6 +63,8 @@ async def get_post_comments(id='', span='', after='', before=''):
         'success': False,
         'message': 'Comments not found.'
     }
+    if not id:
+        return api_response
     db_session = get_session()
     try:
         span = span.strip()
