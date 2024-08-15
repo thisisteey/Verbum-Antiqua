@@ -19,3 +19,6 @@ __pycache__/
 
 #Ignore app_key file
 key.py
+
+#Ignore database population file
+populate_data.py
