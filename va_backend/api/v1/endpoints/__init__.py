@@ -52,10 +52,20 @@ async def get_profile_picture(img_id: str):
     try:
         img_details = imagekit.get_file_details(img_id)
         img_url = ''
-        if img_details['response']:
-            img_url = img_details['response']['url']
-        if img_details['error']:
-            raise ValueError(img_details['error']['message'])
+        if hasattr(img_details, 'response') and img_details.response:
+            img_url = img_details.response.get('url', '')
+        else:
+            img_url = getattr(img_details, 'url', '')
+        if not img_url:
+            raise ValueError('Image URL not found in response')
+        #else:
+        #    raise ValueError('Invalid response from ImageKit')
+        #if hasattr(img_details, 'error') and img_details.error:
+        #    raise ValueError(img_details.error.get('message', 'Unknown error'))
+        #if img_details['response']:
+        #    img_url = img_details['response']['url']
+        #if img_details['error']:
+        #    raise ValueError(img_details['error']['message'])
         api_response = {
             'success': True,
             'data': {
@@ -63,5 +73,9 @@ async def get_profile_picture(img_id: str):
             }
         }
     except Exception as exp:
-        print(exp.args[0])
+        api_response = {
+            'success': False,
+            'message': str(exp)
+        }
+        #print(f"Error: {exp}")
     return api_response
