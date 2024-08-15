@@ -3,7 +3,7 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, TIMESTAMP, String
 from datetime import datetime
-from sqlalchemy.sql import func
+from sqlalchemy.sql import func, text
 
 
 Base = declarative_base()
@@ -27,5 +27,5 @@ def create_tsvector(*columns):
     """Create a TSVector column for full-text search"""
     tsvector_exp = columns[0]
     for col in columns[1:]:
-        tsvector_exp += ' ' + col
-    return func.to_tsvector('english', tsvector_exp)
+        tsvector_exp = func.concat(tsvector_exp, ' ', col)
+    return func.to_tsvector(text("'english'"), tsvector_exp)
