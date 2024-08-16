@@ -167,7 +167,7 @@ async def get_comment_replies(id='', span='', after='', before=''):
                     'user': {
                         'id': user.id,
                         'name': user.name,
-                        'profilePictureId': user.profile_pciture_id
+                        'profilePictureId': user.profile_picture_id
                     },
                     'createdOn': comment.created_on.isoformat(),
                     'text': comment.content,
