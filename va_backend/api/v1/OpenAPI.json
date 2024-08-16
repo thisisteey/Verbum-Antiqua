@@ -1,0 +1,1906 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "FastAPI",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/api/v1": {
+            "get": {
+                "summary": "Get Welcome",
+                "description": "Gets and returns the welcome page and message",
+                "operationId": "get_welcome_api_v1_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api": {
+            "get": {
+                "summary": "Get Welcome",
+                "description": "Gets and returns the welcome page and message",
+                "operationId": "get_welcome_api_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "summary": "Get Welcome",
+                "description": "Gets and returns the welcome page and message",
+                "operationId": "get_welcome__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/favicon.ico": {
+            "get": {
+                "summary": "Serve Favicon",
+                "description": "Gets and returns the favicon image",
+                "operationId": "serve_favicon_favicon_ico_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/favicon": {
+            "get": {
+                "summary": "Serve Favicon",
+                "description": "Gets and returns the favicon image",
+                "operationId": "serve_favicon_favicon_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/profile-picture": {
+            "get": {
+                "summary": "Get Profile Picture",
+                "description": "Gets and returns the profile picture for a user",
+                "operationId": "get_profile_picture_api_v1_profile_picture_get",
+                "parameters": [
+                    {
+                        "name": "img_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Img Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/sign-in": {
+            "post": {
+                "summary": "Sign In",
+                "description": "Authenticate user sign in and generate an auth token",
+                "operationId": "sign_in_api_v1_sign_in_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignInSchema"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/sign-up": {
+            "post": {
+                "summary": "Sign Up",
+                "description": "Register new user and send welcome email",
+                "operationId": "sign_up_api_v1_sign_up_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignUpSchema"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/reset-password": {
+            "put": {
+                "summary": "Reset Password",
+                "description": "Update user password using reset token",
+                "operationId": "reset_password_api_v1_reset_password_put",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PasswordResetSchema"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Request Reset Password",
+                "description": "Generate a password reset token and send reset email",
+                "operationId": "request_reset_password_api_v1_reset_password_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PasswordResetRequestSchema"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/comment": {
+            "get": {
+                "summary": "Get Comment",
+                "description": "Gets and returns details of a specific comment",
+                "operationId": "get_comment_api_v1_comment_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Comment",
+                "description": "Creates and adds a new comment to a post",
+                "operationId": "create_comment_api_v1_comment_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommentAddSchema"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Comment",
+                "description": "Delete a specific comment from a post",
+                "operationId": "delete_comment_api_v1_comment_delete",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommentDeleteSchema"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/comments-of-post": {
+            "get": {
+                "summary": "Get Post Comments",
+                "description": "Gets and return all comments made under a post",
+                "operationId": "get_post_comments_api_v1_comments_of_post_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Id"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/comment-replies": {
+            "get": {
+                "summary": "Get Comment Replies",
+                "description": "Gets and returns the replies to a specific comment",
+                "operationId": "get_comment_replies_api_v1_comment_replies_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Id"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/comments-by-user": {
+            "get": {
+                "summary": "Get User Comments",
+                "description": "Gets and returns all comments by a specific user",
+                "operationId": "get_user_comments_api_v1_comments_by_user_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Id"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/followers": {
+            "get": {
+                "summary": "Get User Followers",
+                "description": "Gets and returns the followers of a specified user.",
+                "operationId": "get_user_followers_api_v1_followers_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Id"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Token"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "12",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/followings": {
+            "get": {
+                "summary": "Get User Followings",
+                "description": "Gets and returns users followed by a given user",
+                "operationId": "get_user_followings_api_v1_followings_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Id"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Token"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "12",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/follow": {
+            "put": {
+                "summary": "Toggle User Follow",
+                "description": "Toggle the follow status between users",
+                "operationId": "toggle_user_follow_api_v1_follow_put",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConnectionSchema"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/post": {
+            "get": {
+                "summary": "Get Post",
+                "description": "Gets and returns infomation about a given post",
+                "operationId": "get_post_api_v1_post_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Token"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Post",
+                "description": "Creates a new post entry",
+                "operationId": "create_post_api_v1_post_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostAddSchema"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Modify Post",
+                "description": "Updates the content and an existing post",
+                "operationId": "modify_post_api_v1_post_put",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostUpdateSchema"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Post",
+                "description": "Permanently removes a post",
+                "operationId": "delete_post_api_v1_post_delete",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostDeleteSchema"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/like-post": {
+            "put": {
+                "summary": "Like Post",
+                "description": "Toggle like status on a post",
+                "operationId": "like_post_api_v1_like_post_put",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostLikeSchema"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/posts-user-made": {
+            "get": {
+                "summary": "Get Users Posts",
+                "description": "Gets and returns posts made by the current user",
+                "operationId": "get_users_posts_api_v1_posts_user_made_get",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "title": "Userid"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Token"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/posts-user-likes": {
+            "get": {
+                "summary": "Get Liked Posts",
+                "description": "Gets and returns posts liked by a user",
+                "operationId": "get_liked_posts_api_v1_posts_user_likes_get",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "title": "Userid"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Token"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/posts-feed": {
+            "get": {
+                "summary": "Get Feed Posts",
+                "description": "Gets and returns posts for a user's feed",
+                "operationId": "get_feed_posts_api_v1_posts_feed_get",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "title": "Token"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/posts-explore": {
+            "get": {
+                "summary": "Get Exploratory Posts",
+                "description": "Gets and returns posts for the explore section",
+                "operationId": "get_exploratory_posts_api_v1_posts_explore_get",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "title": "Token"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/search-posts": {
+            "get": {
+                "summary": "Search Posts",
+                "description": "Search and find posts based on query string and filters",
+                "operationId": "search_posts_api_v1_search_posts_get",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Q"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Token"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/search-people": {
+            "get": {
+                "summary": "Search Users",
+                "description": "Search and find users based on query string and filters",
+                "operationId": "search_users_api_v1_search_people_get",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Q"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Token"
+                        }
+                    },
+                    {
+                        "name": "span",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Span"
+                        }
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "After"
+                        }
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Before"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user": {
+            "get": {
+                "summary": "Get User",
+                "description": "Gets and returns info on a specified user",
+                "operationId": "get_user_api_v1_user_get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "default": "",
+                            "title": "Token"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update User Info",
+                "description": "Updates the info of a user's profile",
+                "operationId": "update_user_info_api_v1_user_put",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserUpdateSchema"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Remove User",
+                "description": "Permanently deletes user data and account",
+                "operationId": "remove_user_api_v1_user_delete",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserDeleteSchema"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CommentAddSchema": {
+                "properties": {
+                    "authToken": {
+                        "type": "string",
+                        "title": "Authtoken"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "title": "Userid"
+                    },
+                    "postId": {
+                        "type": "string",
+                        "title": "Postid"
+                    },
+                    "content": {
+                        "type": "string",
+                        "title": "Content"
+                    },
+                    "replyTo": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Replyto"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authToken",
+                    "userId",
+                    "postId",
+                    "content",
+                    "replyTo"
+                ],
+                "title": "CommentAddSchema",
+                "description": "Schema for adding a comment"
+            },
+            "CommentDeleteSchema": {
+                "properties": {
+                    "authToken": {
+                        "type": "string",
+                        "title": "Authtoken"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "title": "Userid"
+                    },
+                    "commentId": {
+                        "type": "string",
+                        "title": "Commentid"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authToken",
+                    "userId",
+                    "commentId"
+                ],
+                "title": "CommentDeleteSchema",
+                "description": "Schema for deleting a comment"
+            },
+            "ConnectionSchema": {
+                "properties": {
+                    "authToken": {
+                        "type": "string",
+                        "title": "Authtoken"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "title": "Userid"
+                    },
+                    "followId": {
+                        "type": "string",
+                        "title": "Followid"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authToken",
+                    "userId",
+                    "followId"
+                ],
+                "title": "ConnectionSchema",
+                "description": "Schema for creating a user connection"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "PasswordResetRequestSchema": {
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "title": "Email"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "email"
+                ],
+                "title": "PasswordResetRequestSchema",
+                "description": "Schema for requesting a password reset"
+            },
+            "PasswordResetSchema": {
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "title": "Email"
+                    },
+                    "password": {
+                        "type": "string",
+                        "title": "Password"
+                    },
+                    "resetToken": {
+                        "type": "string",
+                        "title": "Resettoken"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "email",
+                    "password",
+                    "resetToken"
+                ],
+                "title": "PasswordResetSchema",
+                "description": "Schema for resetting a password"
+            },
+            "PostAddSchema": {
+                "properties": {
+                    "authToken": {
+                        "type": "string",
+                        "title": "Authtoken"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "title": "Userid"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "quotes": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array",
+                        "title": "Quotes"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authToken",
+                    "userId",
+                    "title",
+                    "quotes"
+                ],
+                "title": "PostAddSchema",
+                "description": "Schema for adding a new post"
+            },
+            "PostDeleteSchema": {
+                "properties": {
+                    "authToken": {
+                        "type": "string",
+                        "title": "Authtoken"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "title": "Userid"
+                    },
+                    "postId": {
+                        "type": "string",
+                        "title": "Postid"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authToken",
+                    "userId",
+                    "postId"
+                ],
+                "title": "PostDeleteSchema",
+                "description": "Schema for deleting a post"
+            },
+            "PostLikeSchema": {
+                "properties": {
+                    "authToken": {
+                        "type": "string",
+                        "title": "Authtoken"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "title": "Userid"
+                    },
+                    "postId": {
+                        "type": "string",
+                        "title": "Postid"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authToken",
+                    "userId",
+                    "postId"
+                ],
+                "title": "PostLikeSchema",
+                "description": "Schema for liking a post"
+            },
+            "PostUpdateSchema": {
+                "properties": {
+                    "authToken": {
+                        "type": "string",
+                        "title": "Authtoken"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "title": "Userid"
+                    },
+                    "postId": {
+                        "type": "string",
+                        "title": "Postid"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title"
+                    },
+                    "quotes": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array",
+                        "title": "Quotes"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authToken",
+                    "userId",
+                    "postId",
+                    "title",
+                    "quotes"
+                ],
+                "title": "PostUpdateSchema",
+                "description": "Schema for updating a post"
+            },
+            "SignInSchema": {
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "title": "Email"
+                    },
+                    "password": {
+                        "type": "string",
+                        "title": "Password"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "email",
+                    "password"
+                ],
+                "title": "SignInSchema",
+                "description": "Schema for user sign in"
+            },
+            "SignUpSchema": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "title": "Email"
+                    },
+                    "password": {
+                        "type": "string",
+                        "title": "Password"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "email",
+                    "password"
+                ],
+                "title": "SignUpSchema",
+                "description": "Schema for user registration"
+            },
+            "UserDeleteSchema": {
+                "properties": {
+                    "authToken": {
+                        "type": "string",
+                        "title": "Authtoken"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "title": "Userid"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authToken",
+                    "userId"
+                ],
+                "title": "UserDeleteSchema",
+                "description": "Schema for deleting a user account"
+            },
+            "UserUpdateSchema": {
+                "properties": {
+                    "authToken": {
+                        "type": "string",
+                        "title": "Authtoken"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "title": "Userid"
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "profilePicture": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Profilepicture"
+                    },
+                    "profilePictureId": {
+                        "type": "string",
+                        "title": "Profilepictureid"
+                    },
+                    "removeProfilePicture": {
+                        "type": "boolean",
+                        "title": "Removeprofilepicture"
+                    },
+                    "email": {
+                        "type": "string",
+                        "title": "Email"
+                    },
+                    "bio": {
+                        "type": "string",
+                        "title": "Bio"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "authToken",
+                    "userId",
+                    "name",
+                    "profilePicture",
+                    "profilePictureId",
+                    "removeProfilePicture",
+                    "email",
+                    "bio"
+                ],
+                "title": "UserUpdateSchema",
+                "description": "Schema for updating a user profile"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    }
+}
