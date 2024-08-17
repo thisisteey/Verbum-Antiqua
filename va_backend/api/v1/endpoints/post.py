@@ -193,7 +193,7 @@ async def delete_post(body: PostDeleteSchema):
             db_session.query(PostLike).filter(
                 PostLike.post_id == body.postId
             ).delete(
-                sychronize_session=False
+                synchronize_session=False
             )
             db_session.query(Comment).filter(
                 Comment.post_id == body.postId
