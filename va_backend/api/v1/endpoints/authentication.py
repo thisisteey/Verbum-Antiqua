@@ -172,13 +172,13 @@ async def request_reset_password(body: PasswordResetRequestSchema):
         ).first()
         if qryres:
             reset_token = ResetTokenMngr(
-                user_id=qryres.user_id,
+                user_id=qryres.id,
                 email=body.email,
                 message='password_reset'
             )
             reset_token_str = ResetTokenMngr.deconvert_token(reset_token)
             db_session.query(User).filter(and_(
-                User.id == qryres.user_id,
+                User.id == qryres.id,
                 User.email == body.email
             )).update(
                 {
