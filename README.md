@@ -110,6 +110,11 @@ Run the server using
 ```
 **NOTE:** Ensure to check the `launch.sh` script. The script is active for `zsh`, but the `bash` version is available as well.
 
+## Demo
+
+Watch a live demonstration of Verbum Antiqua [here](https://youtu.be/6gATfZ7KSIo).
+
+
 ## Documentation
 
 The `OpenAPI` documentation for the project is available in [OpenAPI.json](OpenAPI.json) and [OpenAPI.html](OpenAPI.html) formats.
