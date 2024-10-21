@@ -28,3 +28,7 @@ export_data.py
 
 #Ignore csv folder
 export_data/
+
+# Ignore OpenAPI files
+OpenAPI.html
+OpenAPI.json
